@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedInicioRouteImport } from './routes/_authenticated/inicio'
 import { Route as AuthenticatedExercicioIdRouteImport } from './routes/_authenticated/exercicio.$id'
 import { Route as AuthenticatedTerapeutaIndexRouteImport } from './routes/_authenticated/terapeuta.index'
+import { Route as AuthenticatedTerapeutaParticipanteIdRouteImport } from './routes/_authenticated/terapeuta.$participanteId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,17 +42,25 @@ const AuthenticatedTerapeutaIndexRoute =
     path: '/terapeuta/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedTerapeutaParticipanteIdRoute =
+  AuthenticatedTerapeutaParticipanteIdRouteImport.update({
+    id: '/terapeuta/$participanteId',
+    path: '/terapeuta/$participanteId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/inicio': typeof AuthenticatedInicioRoute
   '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
   '/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/inicio': typeof AuthenticatedInicioRoute
   '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
   '/terapeuta': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesById {
@@ -60,19 +69,31 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/inicio': typeof AuthenticatedInicioRoute
   '/_authenticated/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/_authenticated/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
   '/_authenticated/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/inicio' | '/exercicio/$id' | '/terapeuta/'
+  fullPaths:
+    | '/'
+    | '/inicio'
+    | '/exercicio/$id'
+    | '/terapeuta/$participanteId'
+    | '/terapeuta/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/inicio' | '/exercicio/$id' | '/terapeuta'
+  to:
+    | '/'
+    | '/inicio'
+    | '/exercicio/$id'
+    | '/terapeuta/$participanteId'
+    | '/terapeuta'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/_authenticated/inicio'
     | '/_authenticated/exercicio/$id'
+    | '/_authenticated/terapeuta/$participanteId'
     | '/_authenticated/terapeuta/'
   fileRoutesById: FileRoutesById
 }
@@ -118,18 +139,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTerapeutaIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/terapeuta/$participanteId': {
+      id: '/_authenticated/terapeuta/$participanteId'
+      path: '/terapeuta/$participanteId'
+      fullPath: '/terapeuta/$participanteId'
+      preLoaderRoute: typeof AuthenticatedTerapeutaParticipanteIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedInicioRoute: typeof AuthenticatedInicioRoute
   AuthenticatedExercicioIdRoute: typeof AuthenticatedExercicioIdRoute
+  AuthenticatedTerapeutaParticipanteIdRoute: typeof AuthenticatedTerapeutaParticipanteIdRoute
   AuthenticatedTerapeutaIndexRoute: typeof AuthenticatedTerapeutaIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedInicioRoute: AuthenticatedInicioRoute,
   AuthenticatedExercicioIdRoute: AuthenticatedExercicioIdRoute,
+  AuthenticatedTerapeutaParticipanteIdRoute:
+    AuthenticatedTerapeutaParticipanteIdRoute,
   AuthenticatedTerapeutaIndexRoute: AuthenticatedTerapeutaIndexRoute,
 }
 
