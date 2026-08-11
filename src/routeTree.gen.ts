@@ -10,33 +10,96 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthenticatedInicioRouteImport } from './routes/_authenticated/inicio'
+import { Route as AuthenticatedExercicioIdRouteImport } from './routes/_authenticated/exercicio.$id'
+import { Route as AuthenticatedTerapeutaIndexRouteImport } from './routes/_authenticated/terapeuta.index'
+import { Route as AuthenticatedTerapeutaParticipanteIdRouteImport } from './routes/_authenticated/terapeuta.$participanteId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedInicioRoute = AuthenticatedInicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedExercicioIdRoute =
+  AuthenticatedExercicioIdRouteImport.update({
+    id: '/exercicio/$id',
+    path: '/exercicio/$id',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTerapeutaIndexRoute =
+  AuthenticatedTerapeutaIndexRouteImport.update({
+    id: '/terapeuta/',
+    path: '/terapeuta/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedTerapeutaParticipanteIdRoute =
+  AuthenticatedTerapeutaParticipanteIdRouteImport.update({
+    id: '/terapeuta/$participanteId',
+    path: '/terapeuta/$participanteId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/inicio': typeof AuthenticatedInicioRoute
+  '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
+  '/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/inicio': typeof AuthenticatedInicioRoute
+  '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
+  '/terapeuta': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/_authenticated/inicio': typeof AuthenticatedInicioRoute
+  '/_authenticated/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/_authenticated/terapeuta/$participanteId': typeof AuthenticatedTerapeutaParticipanteIdRoute
+  '/_authenticated/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/inicio'
+    | '/exercicio/$id'
+    | '/terapeuta/$participanteId'
+    | '/terapeuta/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/inicio'
+    | '/exercicio/$id'
+    | '/terapeuta/$participanteId'
+    | '/terapeuta'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/_authenticated/inicio'
+    | '/_authenticated/exercicio/$id'
+    | '/_authenticated/terapeuta/$participanteId'
+    | '/_authenticated/terapeuta/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +111,66 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/inicio': {
+      id: '/_authenticated/inicio'
+      path: '/inicio'
+      fullPath: '/inicio'
+      preLoaderRoute: typeof AuthenticatedInicioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/exercicio/$id': {
+      id: '/_authenticated/exercicio/$id'
+      path: '/exercicio/$id'
+      fullPath: '/exercicio/$id'
+      preLoaderRoute: typeof AuthenticatedExercicioIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/terapeuta/': {
+      id: '/_authenticated/terapeuta/'
+      path: '/terapeuta'
+      fullPath: '/terapeuta/'
+      preLoaderRoute: typeof AuthenticatedTerapeutaIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/terapeuta/$participanteId': {
+      id: '/_authenticated/terapeuta/$participanteId'
+      path: '/terapeuta/$participanteId'
+      fullPath: '/terapeuta/$participanteId'
+      preLoaderRoute: typeof AuthenticatedTerapeutaParticipanteIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedInicioRoute: typeof AuthenticatedInicioRoute
+  AuthenticatedExercicioIdRoute: typeof AuthenticatedExercicioIdRoute
+  AuthenticatedTerapeutaParticipanteIdRoute: typeof AuthenticatedTerapeutaParticipanteIdRoute
+  AuthenticatedTerapeutaIndexRoute: typeof AuthenticatedTerapeutaIndexRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedInicioRoute: AuthenticatedInicioRoute,
+  AuthenticatedExercicioIdRoute: AuthenticatedExercicioIdRoute,
+  AuthenticatedTerapeutaParticipanteIdRoute:
+    AuthenticatedTerapeutaParticipanteIdRoute,
+  AuthenticatedTerapeutaIndexRoute: AuthenticatedTerapeutaIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
