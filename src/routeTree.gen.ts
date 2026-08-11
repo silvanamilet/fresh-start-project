@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthenticatedInicioRouteImport } from './routes/_authenticated/inicio'
 import { Route as AuthenticatedExercicioIdRouteImport } from './routes/_authenticated/exercicio.$id'
+import { Route as AuthenticatedTerapeutaIndexRouteImport } from './routes/_authenticated/terapeuta.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,16 +35,24 @@ const AuthenticatedExercicioIdRoute =
     path: '/exercicio/$id',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedTerapeutaIndexRoute =
+  AuthenticatedTerapeutaIndexRouteImport.update({
+    id: '/terapeuta/',
+    path: '/terapeuta/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/inicio': typeof AuthenticatedInicioRoute
   '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/inicio': typeof AuthenticatedInicioRoute
   '/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/terapeuta': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -51,18 +60,20 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/_authenticated/inicio': typeof AuthenticatedInicioRoute
   '/_authenticated/exercicio/$id': typeof AuthenticatedExercicioIdRoute
+  '/_authenticated/terapeuta/': typeof AuthenticatedTerapeutaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/inicio' | '/exercicio/$id'
+  fullPaths: '/' | '/inicio' | '/exercicio/$id' | '/terapeuta/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/inicio' | '/exercicio/$id'
+  to: '/' | '/inicio' | '/exercicio/$id' | '/terapeuta'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/_authenticated/inicio'
     | '/_authenticated/exercicio/$id'
+    | '/_authenticated/terapeuta/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,17 +111,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedExercicioIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/terapeuta/': {
+      id: '/_authenticated/terapeuta/'
+      path: '/terapeuta'
+      fullPath: '/terapeuta/'
+      preLoaderRoute: typeof AuthenticatedTerapeutaIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedInicioRoute: typeof AuthenticatedInicioRoute
   AuthenticatedExercicioIdRoute: typeof AuthenticatedExercicioIdRoute
+  AuthenticatedTerapeutaIndexRoute: typeof AuthenticatedTerapeutaIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedInicioRoute: AuthenticatedInicioRoute,
   AuthenticatedExercicioIdRoute: AuthenticatedExercicioIdRoute,
+  AuthenticatedTerapeutaIndexRoute: AuthenticatedTerapeutaIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
