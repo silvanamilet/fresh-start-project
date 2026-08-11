@@ -14,16 +14,146 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      exercicios: {
+        Row: {
+          audio_url: string | null
+          criado_em: string
+          descricao_tela1: string | null
+          destaque_tela2: string | null
+          dia: number
+          id: string
+          itens_tela2: Json
+          mensagem_final: string | null
+          ordem: number
+          perguntas: Json
+          perola: string | null
+          semana: number
+          subtitulo: string | null
+          tipo: string
+          titulo: string
+        }
+        Insert: {
+          audio_url?: string | null
+          criado_em?: string
+          descricao_tela1?: string | null
+          destaque_tela2?: string | null
+          dia: number
+          id?: string
+          itens_tela2?: Json
+          mensagem_final?: string | null
+          ordem?: number
+          perguntas?: Json
+          perola?: string | null
+          semana: number
+          subtitulo?: string | null
+          tipo?: string
+          titulo: string
+        }
+        Update: {
+          audio_url?: string | null
+          criado_em?: string
+          descricao_tela1?: string | null
+          destaque_tela2?: string | null
+          dia?: number
+          id?: string
+          itens_tela2?: Json
+          mensagem_final?: string | null
+          ordem?: number
+          perguntas?: Json
+          perola?: string | null
+          semana?: number
+          subtitulo?: string | null
+          tipo?: string
+          titulo?: string
+        }
+        Relationships: []
+      }
+      papeis_usuario: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      registros: {
+        Row: {
+          criado_em: string
+          exercicio_id: string
+          id: string
+          respostas: Json
+          usuario_id: string
+        }
+        Insert: {
+          criado_em?: string
+          exercicio_id: string
+          id?: string
+          respostas?: Json
+          usuario_id: string
+        }
+        Update: {
+          criado_em?: string
+          exercicio_id?: string
+          id?: string
+          respostas?: Json
+          usuario_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "registros_exercicio_id_fkey"
+            columns: ["exercicio_id"]
+            isOneToOne: false
+            referencedRelation: "exercicios"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      usuarios: {
+        Row: {
+          criado_em: string
+          email: string
+          id: string
+          nome: string
+        }
+        Insert: {
+          criado_em?: string
+          email?: string
+          id: string
+          nome?: string
+        }
+        Update: {
+          criado_em?: string
+          email?: string
+          id?: string
+          nome?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "participante" | "terapeuta"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +280,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["participante", "terapeuta"],
+    },
   },
 } as const
