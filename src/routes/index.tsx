@@ -107,10 +107,10 @@ function Login() {
         <div className="mb-8 text-center">
           <div className="mx-auto mb-5 h-16 w-16 rounded-full border border-dourado/60 bg-white shadow-suave" />
           <h1 className="font-serif text-3xl leading-tight text-vinho">
-            Harmonizando Corpo e Mente
+            Projeto: Harmonizando Corpo e Mente
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Um espaço de presença, cuidado e escuta.
+            Recuperando a Direção da Própria Vida
           </p>
         </div>
 
