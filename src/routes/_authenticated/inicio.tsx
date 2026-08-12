@@ -67,13 +67,13 @@ function Inicio() {
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-lg px-5 pb-16 pt-6">
-      <div className="fade-in-up mb-5 flex items-center gap-3">
+      <div className="fade-in-up mb-5 flex items-center gap-4">
         <img
           src={logo.url}
           alt="Logomarca Recuperando a Direção da Própria Vida"
-          className="h-16 w-16 shrink-0 object-contain"
+          className="h-24 w-24 shrink-0 object-contain sm:h-28 sm:w-28"
         />
-        <p className="font-serif text-xl leading-tight text-vinho">
+        <p className="font-serif text-2xl leading-tight text-vinho sm:text-[26px]">
           Recuperando a Direção
           <br />
           da Própria Vida
