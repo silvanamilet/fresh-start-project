@@ -83,6 +83,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -90,6 +91,7 @@
   h2,
   h3 {
     font-family: var(--font-sans);
+    font-weight: 500;
   }
 }
 
