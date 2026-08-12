@@ -103,7 +103,7 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <h2 className="mt-4 font-serif text-[28px] leading-snug text-vinho">
+            <h2 className="mt-4 font-serif text-[26px] leading-snug font-semibold text-vinho sm:text-[30px]">
               <TituloExercicio titulo={destaque.titulo} />
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
