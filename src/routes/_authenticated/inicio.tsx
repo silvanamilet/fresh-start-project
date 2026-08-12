@@ -47,7 +47,10 @@ function Inicio() {
         supabase.from("registros").select("exercicio_id").eq("usuario_id", uid),
       ]);
 
-      setNome(perfil?.nome ?? "");
+      const meta = auth.user?.user_metadata as { nome?: string; full_name?: string } | undefined;
+      const nomeFallback =
+        meta?.nome ?? meta?.full_name ?? (auth.user?.email ? auth.user.email.split("@")[0] : "");
+      setNome(perfil?.nome?.trim() || nomeFallback);
       setInicioPrograma(perfil?.criado_em ?? null);
       setExercicios((exs ?? []) as unknown as Exercicio[]);
       setConcluidos(new Set((regs ?? []).map((r) => r.exercicio_id)));
