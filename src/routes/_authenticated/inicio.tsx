@@ -141,7 +141,7 @@ function Inicio() {
                   <Lock size={15} className="text-muted-foreground" />
                 )}
               </div>
-              <p className="mt-3 text-xs leading-snug font-medium">{nomeDia}</p>
+              <p className="mt-3 text-xs leading-snug font-semibold">{nomeDia}</p>
               <p className="mt-1.5 text-[11px] text-muted-foreground">
                 {feito ? "Concluído" : liberado ? "Disponível" : "Bloqueado"}
               </p>
