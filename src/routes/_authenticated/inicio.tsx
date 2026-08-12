@@ -66,11 +66,24 @@ function Inicio() {
   const destaque = doDia ?? exercicios[0];
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-lg px-5 pb-16 pt-10">
-      <header className="fade-in-up mb-8 flex items-start justify-between gap-4">
+    <main className="mx-auto min-h-screen w-full max-w-lg px-5 pb-16 pt-6">
+      <div className="fade-in-up mb-5 flex items-center gap-3">
+        <img
+          src={logo.url}
+          alt="Logomarca Recuperando a Direção da Própria Vida"
+          className="h-16 w-16 shrink-0 object-contain"
+        />
+        <p className="font-serif text-xl leading-tight text-vinho">
+          Recuperando a Direção
+          <br />
+          da Própria Vida
+        </p>
+      </div>
+
+      <header className="fade-in-up mb-6 flex items-start justify-between gap-4">
         <div>
           <p className="text-sm text-muted-foreground">Olá,</p>
-          <h1 className="font-serif text-3xl text-vinho">{nome || "seja bem-vinda"}</h1>
+          <h1 className="font-serif text-3xl text-ocre">{nome || "seja bem-vinda"}</h1>
           <p className="mt-1 text-sm text-muted-foreground">Semana 1 — Presença</p>
         </div>
         <button
@@ -88,11 +101,13 @@ function Inicio() {
         destaque && (
           <section className="fade-in-up mb-9 rounded-3xl bg-card p-6 shadow-suave">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
-              {iconeTipo(destaque.tipo)} Exercício do dia
+              {iconeTipo(destaque.tipo)} do dia
             </span>
-            <h2 className="mt-4 font-serif text-2xl leading-snug text-vinho">{destaque.titulo}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {destaque.subtitulo}
+            <h2 className="mt-4 font-serif text-[28px] leading-snug text-vinho">
+              <TituloExercicio titulo={destaque.titulo} />
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              <FraseComDestaque texto={destaque.subtitulo ?? ""} peso={550} />
             </p>
             <Link
               to="/exercicio/$id"
@@ -106,7 +121,7 @@ function Inicio() {
       )}
 
       <h3 className="mb-3 text-sm font-semibold tracking-wide text-oliva uppercase">
-        Os 7 dias da Semana 1
+        Os 7 dias da Semana - 1
       </h3>
       <div className="-mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-3">
         {NOMES_DIAS.map((nomeDia, i) => {
