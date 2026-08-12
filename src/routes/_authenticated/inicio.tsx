@@ -47,7 +47,10 @@ function Inicio() {
         supabase.from("registros").select("exercicio_id").eq("usuario_id", uid),
       ]);
 
-      setNome(perfil?.nome ?? "");
+      const meta = auth.user?.user_metadata as { nome?: string; full_name?: string } | undefined;
+      const nomeFallback =
+        meta?.nome ?? meta?.full_name ?? auth.user?.email?.split("@")[0] ?? "";
+      setNome(perfil?.nome?.trim() || nomeFallback);
       setInicioPrograma(perfil?.criado_em ?? null);
       setExercicios((exs ?? []) as unknown as Exercicio[]);
       setConcluidos(new Set((regs ?? []).map((r) => r.exercicio_id)));
@@ -67,13 +70,13 @@ function Inicio() {
 
   return (
     <main className="mx-auto min-h-screen w-full max-w-lg px-5 pb-16 pt-6">
-      <div className="fade-in-up mb-5 flex items-center gap-3">
+      <div className="fade-in-up mb-5 flex items-center gap-4">
         <img
           src={logo.url}
           alt="Logomarca Recuperando a Direção da Própria Vida"
-          className="h-16 w-16 shrink-0 object-contain"
+          className="h-24 w-24 shrink-0 object-contain sm:h-28 sm:w-28"
         />
-        <p className="font-serif text-xl leading-tight text-vinho">
+        <p className="font-serif text-2xl leading-tight text-vinho sm:text-[26px]">
           Recuperando a Direção
           <br />
           da Própria Vida
@@ -103,7 +106,7 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <h2 className="mt-4 font-serif text-[28px] leading-snug text-vinho">
+            <h2 className="mt-4 font-serif text-[26px] leading-snug font-semibold text-vinho sm:text-[30px]">
               <TituloExercicio titulo={destaque.titulo} />
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
