@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { BookOpen, Headphones, Sparkles, Check, Lock, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { NOMES_DIAS, diaLiberado, type Exercicio } from "@/lib/programa";
+import { TituloExercicio, FraseComDestaque } from "@/components/TextoExercicio";
+import logo from "@/assets/logo-harmonizando.png.asset.json";
 
 export const Route = createFileRoute("/_authenticated/inicio")({
   head: () => ({
