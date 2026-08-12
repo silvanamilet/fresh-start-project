@@ -1,0 +1,1 @@
+UPDATE public.exercicios SET descricao_tela1 = 'Um convite simples: transformar um gesto automático do seu dia em um momento de: presença plena.' WHERE semana = 1 AND dia = 1;

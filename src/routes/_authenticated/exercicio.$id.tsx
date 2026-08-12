@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Check, Circle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { AudioPlayer } from "@/components/AudioPlayer";
+import { TituloExercicio, FraseComDestaque } from "@/components/TextoExercicio";
 import type { Exercicio } from "@/lib/programa";
 import capaExercicio from "@/assets/capa-presenca.jpg";
 
@@ -92,11 +93,15 @@ function ExercicioPage() {
             className="mb-6 h-52 w-full rounded-3xl object-cover shadow-suave"
             loading="lazy"
           />
-          <h1 className="font-serif text-3xl leading-snug text-vinho">{ex.titulo}</h1>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">{ex.subtitulo}</p>
+          <h1 className="font-serif text-3xl leading-snug text-vinho">
+            <TituloExercicio titulo={ex.titulo} />
+          </h1>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            <FraseComDestaque texto={ex.subtitulo ?? ""} peso={550} />
+          </p>
           {ex.descricao_tela1 && (
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              {ex.descricao_tela1}
+              <FraseComDestaque texto={ex.descricao_tela1} peso={600} />
             </p>
           )}
           {ex.audio_url && (

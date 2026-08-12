@@ -31,7 +31,7 @@ export type Registro = {
 };
 
 export const NOMES_DIAS = [
-  "Presença no cotidiano",
+  "Presença no Cotidiano",
   "Respiração consciente",
   "Escuta atenta",
   "Corpo e movimento",
