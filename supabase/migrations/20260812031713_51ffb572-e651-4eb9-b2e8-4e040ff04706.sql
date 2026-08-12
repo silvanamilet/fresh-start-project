@@ -1,0 +1,1 @@
+UPDATE public.usuarios SET nome = 'Silvana Milet' WHERE email = 'silvana_mma@hotmail.com';
