@@ -5,7 +5,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { TituloExercicio, FraseComDestaque } from "@/components/TextoExercicio";
 import type { Exercicio } from "@/lib/programa";
-import capaExercicio from "@/assets/capa-escovando.jpg";
+import capaAsset from "@/assets/capa-escovando.png.asset.json";
+
+const capaExercicio = capaAsset.url;
 
 export const Route = createFileRoute("/_authenticated/exercicio/$id")({
   head: () => ({
