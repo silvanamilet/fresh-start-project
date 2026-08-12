@@ -10,9 +10,11 @@ export function TituloExercicio({ titulo, className }: { titulo: string; classNa
   const linha1 = titulo.slice(0, idx);
   const linha2 = titulo.slice(idx + 1);
   return (
-    <span className={`block w-full min-w-0 font-semibold ${className ?? ""}`}>
-      <span className="block whitespace-nowrap">{linha1}</span>
-      <span className="block whitespace-nowrap pl-[2.5ch] sm:pl-[5.5ch]">{linha2}</span>
+    <span
+      className={`block w-full max-w-full min-w-0 overflow-hidden font-semibold text-[clamp(20px,6vw,30px)] ${className ?? ""}`}
+    >
+      <span className="block break-words">{linha1}</span>
+      <span className="block break-words pl-[1.5ch] sm:pl-[3ch]">{linha2}</span>
     </span>
   );
 }
