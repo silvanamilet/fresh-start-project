@@ -137,10 +137,10 @@ function ExercicioPage() {
               <div className="mt-6 rounded-2xl border border-dourado bg-marfim2 p-5">
                 {partes.length > 1 ? (
                   <>
-                    <p className="font-serif text-lg font-semibold leading-snug text-vinho">
-                      {partes[0]}?
+                    <p className="font-serif text-xl font-semibold leading-snug text-vinho">
+                      {partes[0].trim()}?
                     </p>
-                    <p className="mt-2 font-serif text-lg font-semibold leading-snug text-oliva">
+                    <p className="mt-2 font-serif text-xl font-semibold leading-snug text-oliva">
                       {partes[1]}
                     </p>
                   </>
