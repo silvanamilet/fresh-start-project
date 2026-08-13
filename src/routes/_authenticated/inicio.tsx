@@ -106,19 +106,20 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <h2 className="mt-4 font-serif leading-snug font-semibold text-vinho text-right" style={{fontSize:"16px", overflow:"visible"}}>
+            <p className="mt-3 font-serif font-semibold text-vinho text-right" style={{fontSize:"18px", lineHeight:"1.4"}}>
               {(() => {
-                const idx = destaque.titulo.lastIndexOf(" com ");
-                if (idx === -1) return <span>{destaque.titulo}</span>;
+                const t = destaque.titulo ?? "";
+                const idx = t.lastIndexOf(" com ");
+                if (idx === -1) return <span>{t}</span>;
                 return (
                   <>
-                    <span className="block">{destaque.titulo.slice(0, idx)}</span>
-                    <span className="block">{destaque.titulo.slice(idx + 1)}</span>
+                    <span className="block">{t.slice(0, idx)}</span>
+                    <span className="block">{t.slice(idx + 1)}</span>
                   </>
                 );
               })()}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-right">
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-left">
               <FraseComDestaque texto={destaque.subtitulo ?? ""} peso={650} />
             </p>
             <Link
