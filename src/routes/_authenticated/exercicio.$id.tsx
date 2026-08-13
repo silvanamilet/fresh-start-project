@@ -171,7 +171,7 @@ function ExercicioPage() {
               void salvar();
             }}
           >
-            {ex.perguntas.map((p) => (
+            {ex.perguntas.filter((p) => !p.texto.toLowerCase().startsWith("sua mente se")).map((p) => (
               <div key={p.id} className="rounded-2xl bg-card p-5 shadow-suave">
                 <p className="mb-4 text-sm font-semibold leading-snug">{p.texto}</p>
 
