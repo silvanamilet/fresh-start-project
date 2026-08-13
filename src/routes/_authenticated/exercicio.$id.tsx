@@ -253,16 +253,8 @@ function ExercicioPage() {
                 Pérola da Semana
               </p>
               <p className="mt-3 font-serif text-2xl leading-snug text-vinho italic text-center">
-                {(() => {
-                  const idx = (ex.perola ?? "").indexOf(" gesto");
-                  if (idx === -1) return <span>{ex.perola}</span>;
-                  return (
-                    <>
-                      <span className="block">{(ex.perola ?? "").slice(0, idx)}</span>
-                      <span className="block">{(ex.perola ?? "").slice(idx + 1)}</span>
-                    </>
-                  );
-                })()}
+                <span className="block">Perceber é o primeiro</span>
+                <span className="block">gesto de liberdade.</span>
               </p>
             </div>
           )}
