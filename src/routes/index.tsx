@@ -105,12 +105,19 @@ function Login() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-marfim px-5 py-10">
       <div className="fade-in-up w-full max-w-sm">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-5 h-16 w-16 rounded-full border border-dourado/60 bg-white shadow-suave" />
+          <img
+            src="/logo-silvana.png"
+            alt="Silvana Milet"
+            className="mx-auto mb-5 w-56 object-contain"
+          />
+          <p className="text-sm font-semibold tracking-wide" style={{ color: "#5A5230" }}>
+            Projeto
+          </p>
           <h1 className="font-serif text-3xl leading-tight text-vinho">
-            Projeto: Harmonizando Corpo e Mente
+            Harmonizando Corpo e Mente
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
-            Recuperando a Direção da Própria Vida
+            Um espaço de presença, cuidado e escuta.
           </p>
         </div>
 
