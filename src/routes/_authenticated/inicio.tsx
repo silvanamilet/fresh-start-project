@@ -146,7 +146,7 @@ function Inicio() {
               </div>
               <p className="mt-3 text-xs leading-snug font-semibold">{nomeDia}</p>
               <p className="mt-1.5 text-[11px] text-muted-foreground">
-                {feito ? "Concluído" : liberado ? "Disponível" : "Bloqueado"}
+                {feito ? "Concluído" // status : liberado ? "Disponível" : "Bloqueado"}
               </p>
             </>
           );
