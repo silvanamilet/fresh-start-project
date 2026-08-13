@@ -232,7 +232,7 @@ function ExercicioPage() {
               disabled={salvando}
               className="w-full rounded-full bg-vinho px-6 py-3.5 font-semibold text-primary-foreground transition active:scale-[0.98] disabled:opacity-60"
             >
-              {salvando ? "Salvando..." : "Enviar registro"}
+              {"Enviar registro"}
             </button>
           </form>
         </section>
