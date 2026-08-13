@@ -113,7 +113,7 @@ function Login() {
           <p className="text-sm font-semibold tracking-wide" style={{ color: "#5A5230" }}>
             Projeto
           </p>
-          <h1 className="font-serif text-3xl leading-tight text-vinho">
+          <h1 className="font-serif text-2xl leading-tight text-vinho">
             Harmonizando Corpo e Mente
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
