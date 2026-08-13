@@ -110,7 +110,7 @@ function Login() {
             alt="Silvana Milet"
             className="mx-auto mb-4 w-[246px] object-contain"
           />
-          <p className="font-serif text-base tracking-widest" style={{ color: "#5A5230", fontStyle: "italic", letterSpacing: "0.12em" }}>
+          <p className="font-serif text-[22px] tracking-wide" style={{ color: "#5A5230", fontStyle: "italic" }}>
             Projeto
           </p>
           <h1 className="font-serif text-[28px] leading-tight text-vinho font-semibold">
