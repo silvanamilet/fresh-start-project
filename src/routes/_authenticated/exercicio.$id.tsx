@@ -156,8 +156,8 @@ function ExercicioPage() {
             }}
           >
             {ex.perguntas.map((p) => (
-              <fieldset key={p.id} className="rounded-2xl bg-card p-5 shadow-suave">
-                <legend className="mb-3 text-sm font-semibold">{p.texto}</legend>
+              <div key={p.id} className="rounded-2xl bg-card p-5 shadow-suave">
+                <p className="mb-4 text-sm font-semibold leading-snug">{p.texto}</p>
 
                 {p.tipo === "radio" &&
                   p.opcoes?.map((op) => (
@@ -206,7 +206,7 @@ function ExercicioPage() {
                     className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm outline-none focus:border-dourado"
                   />
                 )}
-              </fieldset>
+              </div>
             ))}
 
             {erro && <p className="text-sm text-destructive">{erro}</p>}
