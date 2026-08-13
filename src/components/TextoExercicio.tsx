@@ -16,7 +16,7 @@ export function TituloExercicio({ titulo, className }: { titulo: string; classNa
       style={{ fontSize: "clamp(17px, 4.5vw, 24px)" }}
     >
       <span className="block">{linha1}</span>
-      <span className={`block ${isRight ? "" : "pl-[1.5ch] sm:pl-[3ch]"}`}>{linha2}</span>
+      <span className="block">{linha2}</span>
     </span>
   );
 }

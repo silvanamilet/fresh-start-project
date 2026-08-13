@@ -102,7 +102,7 @@ function ExercicioPage() {
             <FraseComDestaque texto={ex.subtitulo ?? ""} peso={650} />
           </p>
           {ex.descricao_tela1 && (
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+            <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
               <FraseComDestaque texto={ex.descricao_tela1} peso={700} pesoInicio={650} novaLinha={true} />
             </p>
           )}
