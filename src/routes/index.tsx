@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Entrar | Harmonizando Corpo e Mente" },
       {
         property: "og:description",
-        content: "Acesse seus exercícios de presença e áudios guiados.",
+        content: "Acesse a plataforma Harmonizando Corpo e Mente para praticar presença e registrar suas experiências.",
       },
     ],
   }),

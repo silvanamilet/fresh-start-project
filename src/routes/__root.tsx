@@ -77,21 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "Harmonizando Corpo e Mente" },
+      { title: "Entrar | Harmonizando Corpo e Mente" },
       {
         name: "description",
         content:
-          "Plataforma terapêutica de exercícios de presença, áudios guiados e registro de experiências.",
+          "Acesse a plataforma Harmonizando Corpo e Mente para praticar presença e registrar suas experiências.",
       },
       { name: "author", content: "Silvana Milet" },
       { name: "theme-color", content: "#772F30" },
-      { property: "og:title", content: "Harmonizando Corpo e Mente" },
+      { property: "og:title", content: "Entrar | Harmonizando Corpo e Mente" },
       {
         property: "og:description",
-        content: "Exercícios de presença, áudios guiados e registro de experiências.",
+        content: "Acesse a plataforma Harmonizando Corpo e Mente para praticar presença e registrar suas experiências.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Entrar | Harmonizando Corpo e Mente" },
+      { name: "twitter:description", content: "Acesse a plataforma Harmonizando Corpo e Mente para praticar presença e registrar suas experiências." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aadef525-f70f-47b5-b02f-080aeb262ff3/id-preview-391e31e9--82ade176-4335-44c8-b33e-6faa0a700784.lovable.app-1786591193249.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/aadef525-f70f-47b5-b02f-080aeb262ff3/id-preview-391e31e9--82ade176-4335-44c8-b33e-6faa0a700784.lovable.app-1786591193249.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
