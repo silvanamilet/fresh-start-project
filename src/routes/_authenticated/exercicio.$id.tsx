@@ -95,8 +95,8 @@ function ExercicioPage() {
             className="mb-6 h-52 w-full rounded-3xl object-cover shadow-suave"
             loading="lazy"
           />
-          <h1 className="font-serif text-3xl leading-snug text-vinho">
-            <TituloExercicio titulo={ex.titulo} />
+          <h1 className="font-serif text-2xl leading-snug text-vinho font-semibold">
+            {ex.titulo}
           </h1>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             <FraseComDestaque texto={ex.subtitulo ?? ""} peso={650} />
