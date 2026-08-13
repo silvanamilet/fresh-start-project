@@ -106,21 +106,14 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <p className="mt-3 font-serif font-semibold text-vinho text-right" style={{fontSize:"18px", lineHeight:"1.4"}}>
-              {(() => {
-                const t = destaque.titulo ?? "";
-                const idx = t.lastIndexOf(" com ");
-                if (idx === -1) return <span>{t}</span>;
-                return (
-                  <>
-                    <span className="block">{t.slice(0, idx)}</span>
-                    <span className="block">{t.slice(idx + 1)}</span>
-                  </>
-                );
-              })()}
+            <p className="mt-3 font-serif font-semibold text-vinho text-right" style={{fontSize:"18px", lineHeight:"1.5"}}>
+              <span className="block">Escovando os Dentes</span>
+              <span className="block">com Presença.</span>
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-left">
-              <FraseComDestaque texto={destaque.subtitulo ?? ""} peso={650} />
+              <span className="block">Hoje você vai fazer uma atividade</span>
+              <span className="block">habitual, de um jeito diferente:</span>
+              <span className="block font-semibold">prestando atenção.</span>
             </p>
             <Link
               to="/exercicio/$id"
