@@ -106,11 +106,11 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <h2 className="mt-4 min-w-0 font-serif text-xl leading-snug font-semibold text-vinho">
-              <TituloExercicio titulo={destaque.titulo} />
+            <h2 className="mt-4 min-w-0 font-serif text-xl leading-snug font-semibold text-vinho text-right">
+              <TituloExercicio titulo={destaque.titulo} className="text-right" />
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              <FraseComDestaque texto={destaque.subtitulo ?? ""} peso={550} />
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-right">
+              <FraseComDestaque texto={destaque.subtitulo ?? ""} peso={650} />
             </p>
             <Link
               to="/exercicio/$id"
