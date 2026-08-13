@@ -252,10 +252,7 @@ function ExercicioPage() {
               <p className="text-xs font-semibold tracking-widest text-oliva uppercase">
                 Pérola da Semana
               </p>
-              <p className="mt-3 font-serif text-2xl leading-snug text-vinho italic text-center">
-                <span className="block">Perceber é o primeiro</span>
-                <span className="block">gesto de liberdade.</span>
-              </p>
+              <p className="mt-3 font-serif text-3xl leading-snug text-vinho italic text-center">{ex.perola}</p>
             </div>
           )}
           <button
