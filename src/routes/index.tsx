@@ -102,18 +102,18 @@ function Login() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-marfim px-5 py-10">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-marfim px-5 pt-6 pb-10">
       <div className="fade-in-up w-full max-w-sm">
         <div className="mb-8 text-center">
           <img
             src="/logo-silvana.png"
             alt="Silvana Milet"
-            className="mx-auto mb-5 w-56 object-contain"
+            className="mx-auto mb-4 w-[246px] object-contain"
           />
-          <p className="text-sm font-semibold tracking-wide" style={{ color: "#5A5230" }}>
+          <p className="font-serif text-base tracking-widest" style={{ color: "#5A5230", fontStyle: "italic", letterSpacing: "0.12em" }}>
             Projeto
           </p>
-          <h1 className="font-serif text-2xl leading-tight text-vinho">
+          <h1 className="font-serif text-[28px] leading-tight text-vinho font-semibold">
             Harmonizando Corpo e Mente
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
