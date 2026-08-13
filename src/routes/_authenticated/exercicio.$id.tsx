@@ -122,7 +122,7 @@ function ExercicioPage() {
 
       {tela === 2 && (
         <section key="t2" className="fade-in-up">
-          <h1 className="font-serif text-3xl leading-snug text-vinho">Durante a prática, observe</h1>
+          <h1 className="font-serif text-3xl leading-snug text-vinho">Durante a prática, observe:</h1>
           <ul className="mt-6 space-y-3">
             {ex.itens_tela2.map((item, i) => (
               <li key={i} className="flex gap-3 rounded-2xl bg-card p-4 shadow-suave">
@@ -131,11 +131,27 @@ function ExercicioPage() {
               </li>
             ))}
           </ul>
-          {ex.destaque_tela2 && (
-            <p className="mt-6 rounded-2xl border border-dourado bg-marfim2 p-5 font-serif text-xl leading-snug text-oliva">
-              {ex.destaque_tela2}
-            </p>
-          )}
+          {ex.destaque_tela2 && (() => {
+            const partes = ex.destaque_tela2.split(/\?\s+/);
+            return (
+              <div className="mt-6 rounded-2xl border border-dourado bg-marfim2 p-5">
+                {partes.length > 1 ? (
+                  <>
+                    <p className="font-serif text-lg font-semibold leading-snug text-vinho">
+                      {partes[0]}?
+                    </p>
+                    <p className="mt-2 font-serif text-lg font-semibold leading-snug text-oliva">
+                      {partes[1]}
+                    </p>
+                  </>
+                ) : (
+                  <p className="font-serif text-lg font-semibold leading-snug text-oliva">
+                    {ex.destaque_tela2}
+                  </p>
+                )}
+              </div>
+            );
+          })()}
           <button
             onClick={() => setTela(3)}
             className="mt-8 w-full rounded-full bg-vinho px-6 py-3.5 font-semibold text-primary-foreground transition active:scale-[0.98]"
@@ -156,8 +172,8 @@ function ExercicioPage() {
             }}
           >
             {ex.perguntas.map((p) => (
-              <div key={p.id} className="rounded-2xl bg-card p-5 shadow-suave">
-                <p className="mb-4 text-sm font-semibold leading-snug">{p.texto}</p>
+              <fieldset key={p.id} className="rounded-2xl bg-card p-5 shadow-suave">
+                <legend className="mb-3 text-sm font-semibold">{p.texto}</legend>
 
                 {p.tipo === "radio" &&
                   p.opcoes?.map((op) => (
@@ -206,7 +222,7 @@ function ExercicioPage() {
                     className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm outline-none focus:border-dourado"
                   />
                 )}
-              </div>
+              </fieldset>
             ))}
 
             {erro && <p className="text-sm text-destructive">{erro}</p>}
