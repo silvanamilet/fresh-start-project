@@ -99,11 +99,11 @@ function ExercicioPage() {
             <TituloExercicio titulo={ex.titulo} />
           </h1>
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            <FraseComDestaque texto={ex.subtitulo ?? ""} peso={550} />
+            <FraseComDestaque texto={ex.subtitulo ?? ""} peso={650} />
           </p>
           {ex.descricao_tela1 && (
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              <FraseComDestaque texto={ex.descricao_tela1} peso={600} />
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              <FraseComDestaque texto={ex.descricao_tela1} peso={700} pesoInicio={650} novaLinha={true} />
             </p>
           )}
           {ex.audio_url && (

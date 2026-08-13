@@ -6,14 +6,15 @@ import type { CSSProperties } from "react";
  */
 export function TituloExercicio({ titulo, className }: { titulo: string; className?: string }) {
   const idx = titulo.lastIndexOf(" com ");
-  if (idx === -1) return <span className={`font-semibold ${className ?? ""}`}>{titulo}</span>;
+  if (idx === -1) return <span className={className}>{titulo}</span>;
   const linha1 = titulo.slice(0, idx);
   const linha2 = titulo.slice(idx + 1);
   return (
-    <span className={`font-semibold ${className ?? ""}`}>
-      {linha1}
-      <br />
-      <span className="pl-[1.5ch] sm:pl-[3ch]">{linha2}</span>
+    <span
+      className={`block w-full max-w-full min-w-0 overflow-hidden font-semibold text-[clamp(20px,6vw,30px)] ${className ?? ""}`}
+    >
+      <span className="block break-words">{linha1}</span>
+      <span className="block break-words pl-[1.5ch] sm:pl-[3ch]">{linha2}</span>
     </span>
   );
 }
