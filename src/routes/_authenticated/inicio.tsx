@@ -106,10 +106,9 @@ function Inicio() {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-marfim2 px-3 py-1 text-xs font-medium text-oliva">
               {iconeTipo(destaque.tipo)} do dia
             </span>
-            <div className="mt-3 font-serif font-semibold text-vinho" style={{fontSize:"20px", lineHeight:"1.5"}}>
-              <span className="block">Escovando os Dentes</span>
-              <span className="block">com Presença.</span>
-            </div>
+            <p className="mt-3 font-serif font-semibold text-vinho text-lg leading-snug">
+              {destaque.titulo}
+            </p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-left">
               <span className="block">Hoje você vai fazer uma atividade</span>
               <span className="block">habitual, de um jeito diferente:</span>
