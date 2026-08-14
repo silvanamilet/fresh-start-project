@@ -125,7 +125,7 @@ function ExercicioPage() {
           <h1 className="font-serif text-3xl leading-snug text-vinho">Durante a prática, observe:</h1>
           <ul className="mt-6 space-y-3">
             {ex.itens_tela2.map((item, i) => (
-              <li key={i} className="flex gap-3 rounded-2xl bg-card p-4 shadow-suave">
+              <li key={i} className="flex gap-3 rounded-2xl bg-card py-2.5 px-4 shadow-suave">
                 <Circle size={16} className="mt-0.5 shrink-0 text-dourado" />
                 <span className="text-sm leading-relaxed">{item}</span>
               </li>
