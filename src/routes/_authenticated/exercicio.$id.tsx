@@ -138,7 +138,7 @@ function ExercicioPage() {
                 {partes.length > 1 ? (
                   <>
                     <p className="font-serif text-xl font-semibold leading-snug text-vinho">
-                      {partes[0].trim()}?
+                      Sua mente viajou?
                     </p>
                     <p className="mt-2 font-serif text-xl font-semibold leading-snug text-oliva">
                       {partes[1]}
