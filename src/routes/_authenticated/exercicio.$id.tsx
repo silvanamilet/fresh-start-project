@@ -107,8 +107,8 @@ function ExercicioPage() {
             </p>
           )}
           {ex.audio_url && (
-            <div className="mt-6">
-              <AudioPlayer src={ex.audio_url} />
+            <div className="mt-6 rounded-2xl bg-card p-4 shadow-suave text-sm leading-relaxed text-muted-foreground">
+              Antes de iniciar a prática, leia as orientações e depois ouça o áudio.
             </div>
           )}
           <button
@@ -152,6 +152,11 @@ function ExercicioPage() {
               </div>
             );
           })()}
+          {ex.audio_url && (
+            <div className="mt-6">
+              <AudioPlayer src={ex.audio_url} />
+            </div>
+          )}
           <button
             onClick={() => setTela(3)}
             className="mt-8 w-full rounded-full bg-vinho px-6 py-3.5 font-semibold text-primary-foreground transition active:scale-[0.98]"
